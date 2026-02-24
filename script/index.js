@@ -162,10 +162,11 @@ function removeFromCart(id){
 function calculateTotal(){
   return cart.reduce((sum, item)=> sum + Number(item.price)*item.quantity, 0).toFixed(2);
 }
-
 function updateCartUI(){
   const cartContainer = document.getElementById("cart-container");
   const totalPrice = document.getElementById("cart-total");
+  const cartBadge = document.getElementById("cart-count-badge"); // ✅ navbar badge
+
   cartContainer.innerHTML = "";
 
   cart.forEach(item=>{
@@ -178,9 +179,13 @@ function updateCartUI(){
     cartContainer.appendChild(div);
   });
 
+  // Update total price
   totalPrice.innerText = `$${calculateTotal()}`;
-}
 
+  // Update navbar badge
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  cartBadge.innerText = totalItems;
+}
 /** 9️⃣ Modal */
 const openModal = (id)=>{
   const modal = document.getElementById("modal-overlay");
