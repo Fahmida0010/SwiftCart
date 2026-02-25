@@ -1,7 +1,7 @@
 let currentProducts = [];
 let cart = [];
 
-/** 1️⃣ Initialize App */
+/* Initialize App */
 const init = async () => {
   try {
     const res = await fetch("https://fakestoreapi.com/products");
@@ -12,7 +12,7 @@ const init = async () => {
   }
 };
 
-/** 2️⃣ SPA Navigation */
+/** Navigation */
 const navigateTo = (page) => {
   document.getElementById("home-page").classList.toggle("hidden", page !== "home");
   document.getElementById("all-products-page").classList.toggle("hidden", page !== "products");
@@ -23,7 +23,7 @@ const navigateTo = (page) => {
   }
 };
 
-/** 3️⃣ Trending Products */
+//  Trending Products 
 const loadTrendingProducts = (products) => {
   const container = document.getElementById("trending-container");
   container.innerHTML = "";
@@ -33,14 +33,14 @@ const loadTrendingProducts = (products) => {
   topRated.forEach(product => container.appendChild(createProductCard(product)));
 };
 
-/** 4️⃣ All Products */
+/**All Products */
 const loadAllProducts = (products) => {
   const container = document.getElementById("all-products-container");
   container.innerHTML = "";
   products.forEach(product => container.appendChild(createProductCard(product)));
 };
 
-/** 5️⃣ Categories */
+/* Categories */
 const loadCategories = async () => {
   try {
     const res = await fetch("https://fakestoreapi.com/products/categories");
@@ -97,7 +97,7 @@ const fetchProductsByCategory = async (category) => {
   spinner.classList.add("hidden");
 };
 
-/** 6️⃣ Product Card */
+/* Product Card */
 const createProductCard = (product) => {
   const card = document.createElement("div");
   card.className = "bg-white p-6 rounded-xl shadow hover:shadow-lg transition relative";
@@ -116,29 +116,24 @@ const createProductCard = (product) => {
   return card;
 };
 
-/** 7️⃣ Global Click Listener for Add/Remove */
+/**  Global Click Listener for Add/Remove */
 document.addEventListener("click", function(e){
-  // Add to Cart
   if(e.target.classList.contains("add-to-cart-btn")){
     const id = parseInt(e.target.getAttribute("data-id"));
     const product = currentProducts.find(p => p.id === id);
     if(product) addToCart(product);
   }
-
-  // Remove from Cart
   if(e.target.classList.contains("remove-cart-btn")){
     const id = parseInt(e.target.getAttribute("data-id"));
     removeFromCart(id);
   }
-
-  // Open Modal
   if(e.target.classList.contains("details-btn")){
     const id = parseInt(e.target.getAttribute("data-id"));
     openModal(id);
   }
 });
 
-/** 8️⃣ Cart Functions */
+/**Cart Functions */
 function addToCart(product){
   const existing = cart.find(item => item.id === product.id);
   if(existing) existing.quantity += 1;
@@ -165,7 +160,7 @@ function calculateTotal(){
 function updateCartUI(){
   const cartContainer = document.getElementById("cart-container");
   const totalPrice = document.getElementById("cart-total");
-  const cartBadge = document.getElementById("cart-count-badge"); // ✅ navbar badge
+  const cartBadge = document.getElementById("cart-count-badge"); 
 
   cartContainer.innerHTML = "";
 
@@ -181,12 +176,10 @@ function updateCartUI(){
 
   // Update total price
   totalPrice.innerText = `$${calculateTotal()}`;
-
-  // Update navbar badge
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
   cartBadge.innerText = totalItems;
 }
-/** 9️⃣ Modal */
+/** Modal */
 const openModal = (id)=>{
   const modal = document.getElementById("modal-overlay");
   const content = document.getElementById("modal-content");
@@ -220,5 +213,4 @@ const closeModal = ()=>{
   document.body.style.overflow = "auto";
 };
 
-// Start App
 init();

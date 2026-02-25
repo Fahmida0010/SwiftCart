@@ -25,14 +25,10 @@
 
 <body class="bg-base-200">
 
-<!-- ================= NAVBAR ================= -->
+<!--NAVBAR  -->
 <header>
   <div class="navbar bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white shadow-lg px-4 lg:px-8">
-
-    <!-- Left Side -->
     <div class="navbar-start">
-
-      <!-- Mobile Menu Button -->
       <div class="dropdown">
         <label tabindex="0" class="btn btn-ghost lg:hidden
          text-white">
@@ -46,10 +42,7 @@
           <li><a>Contact</a></li>
         </ul>
       </div>
-
-      <!-- Logo + Brand Name -->
       <div class="flex items-center gap-2">
-        <!-- LOGO IMAGE (You will add image here) -->
         <img src="./Assets/logo.jpg" alt="logo" class="w-8 h-8 object-contain">
 
         <a class="text-xl font-bold  text-green-500 tracking-wide">
@@ -58,7 +51,7 @@
       </div>
     </div>
 
-    <!-- Center Menu (Desktop Only) -->
+    <!-- Center Menu -->
     <div class="navbar-center hidden lg:flex">
       <ul class="menu menu-horizontal px-1 space-x-6 font-medium">
         <li><a  onclick="navigateTo('home')" class="hover:text-yellow-300 transition duration-300">Home</a></li>
@@ -67,8 +60,6 @@
         <li><a class="hover:text-yellow-300 transition duration-300">Contact</a></li>
       </ul>
     </div>
-
-    <!-- Right Side -->
     <div class="navbar-end">
       <button class="btn bg-white text-purple-600 border-none hover:bg-yellow-300 hover:text-black transition duration-300">
         🛒 Cart (<span id="cart-count-badge">0</span>)
@@ -80,50 +71,37 @@
 <!-- //homepage -->
 <main id="home-page">
 
-<!-- ================= HERO ================= -->
+<!--  HERO -->
 <section class="relative w-full min-h-[70vh] flex items-center justify-center overflow-hidden">
-
-  <!-- Background Image -->
   <img 
     src="./Assets/banner-image.png" 
     alt="Banner"
     class="absolute inset-0 w-full h-full object-cover"
   />
-
-  <!-- Overlay -->
   <div class="absolute inset-0 bg-black/60"></div>
-
-  <!-- Content -->
   <div class="relative z-10 text-center text-white px-4 max-w-2xl">
-
     <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
       Best Collection For You
     </h1>
-
     <p class="text-sm sm:text-base md:text-lg mb-6">
       Discover the latest fashion & electronics
     </p>
-
     <button class="bg-purple-500 hover:bg-purple-600 transition px-6 py-3 rounded-lg font-semibold">
       Shop Now
     </button>
-
   </div>
-
 </section>
 
-<!-- ================= FEATURES ================= -->
+<!--FEATURES  -->
 <section class="py-16 bg-gradient-to-b from-white to-purple-50 text-center">
 
   <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">
     Why Choose Us
   </h2>
-
   <p class="text-gray-600 max-w-2xl mx-auto mb-12">
     We provide top-quality products with exceptional service to ensure
     the best shopping experience for our customers.
   </p>
-
   <div class="grid md:grid-cols-3 gap-8 w-11/12 mx-auto">
 
     <!-- Card 1 -->
@@ -166,17 +144,14 @@
 
 </section>
 
-<!-- ================= Trending Section ================= -->
+<!--Trending Section -->
 <section class="py-16 bg-gray-50">
   <div class="max-w-6xl mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-10">
       🔥 Trending Products
     </h2>
-
-    <!-- Product Container -->
     <div id="trending-container" class="grid grid-cols-1
      sm:grid-cols-2 md:grid-cols-3 gap-8">
-      <!-- JS will inject product cards here -->
     </div>
   </div>
 </section>   
@@ -189,8 +164,6 @@
       <h2 class="text-3xl font-bold text-center mb-10">
         🛍️ All Our Products
       </h2>
-
-      <!-- CATEGORY -->
       <div id="category-container" class="flex flex-wrap justify-center gap-3 mb-8"></div>
 
       <!-- SPINNER -->
@@ -203,7 +176,7 @@
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       </div>
 
-      <!-- 🛒 CART SECTION -->
+      <!-- CART SECTION -->
       <div class="mt-16 bg-white p-6 rounded-lg shadow">
         <h3 class="text-2xl font-bold mb-4">🛒 My Cart</h3>
 
@@ -220,28 +193,19 @@
   </section>
 </main>
 
-
-
-<!-- ================= Modal ================= -->
+<!--Modal -->
 <div id="modal-overlay" class="fixed inset-0 bg-black/50 flex items-center justify-center p-4 sm:p-6 md:p-8 hidden z-50">
   <div class="bg-white rounded-xl p-6 w-full max-w-md sm:max-w-lg md:max-w-xl relative shadow-lg overflow-y-auto max-h-[90vh]">
-    
-    <!-- Close Button -->
     <button class="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-2xl sm:text-3xl" onclick="closeModal()">✕</button>
-    
-    <!-- Modal Content -->
     <div id="modal-content" class="space-y-4">
-      <!-- JS will inject product details here -->
     </div>
   </div>
 </div>
 
-<!-- ================= FOOTER ================= -->
+<!--FOOTER-->
 <footer class="bg-purple-500 text-white pt-12 pb-6">
 
   <div class="w-11/12 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center sm:text-left">
-
-    <!-- Brand Info -->
     <div>
       <div class="flex items-center justify-center sm:justify-start gap-2 mb-4">
         <img src="./Assets/logo.jpg" alt="logo" class="w-8 h-8">
@@ -305,8 +269,6 @@
     </div>
 
   </div>
-
-  <!-- Bottom Line -->
   <div class="text-center text-sm text-gray-200 mt-10 pt-4 border-t border-white/20">
     © 2026 <span class="text-green-400 font-bold">SwiftCart</span>. All rights reserved.
   </div>
