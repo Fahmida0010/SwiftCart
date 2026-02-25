@@ -1,3 +1,6 @@
+
+Live link : https://heartfelt-fox-2597a9.netlify.app
+
 1) What is the difference between null and undefined?
 Answer : null মানে ইচ্ছাকৃতভাবে কোনো value নেই। যেমন: 
  let x = null; <!-- এখানে x-র কোনো value নেই -->
